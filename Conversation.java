@@ -68,6 +68,12 @@ class Conversation {
         else if (element.equals("you.")) {
           element = "me";
         }
+        else if (element.equals("you're")) {
+          element = "I'm";
+        }
+        else if (element.equals("i'm")) {
+          element = "you're";
+        }
         // add element to mirrored response 
         mirrored_response += element + " ";
         }
@@ -104,7 +110,7 @@ class Conversation {
     // add final greeting to transcript
     transcript.add("Bye!");
     // let user know that it is printing transcript
-    System.out.println("Here's a transcript of our conversation.");
+    System.out.println('\n' + "Here's a transcript of our conversation.");
     // for elements in the transcript string array, print it out
     for (String element : transcript) {
       System.out.println(element);
