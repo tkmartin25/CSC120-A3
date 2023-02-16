@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.ArrayList;
 // import array list
 
 class Conversation {
@@ -7,32 +8,33 @@ class Conversation {
     int rounds = 1;
     int counter = 1 ;
     String user_sentence = "";
-    String user_reply = ""; 
     String modified_user_sentence = "";
+    String canned_response = "";
     // array to hold responses 
-    String [] transcript = {};
+    ArrayList<String> transcript = new ArrayList<String>();
     // array to hold replacements
-    String [] canned_responses = {"Mmm-hmm.", "Okay.", "Nice.", "I see.", "I get that.", "Aha.", "Real.", "It's so interesting to hear how humans think."};
+    String [] canned_responses = {"Mmm-hmm.", "Okay.", "Nice.", "I see.", "I get that.", "Aha.", "Real.", "It's so interesting to hear how humans think.", "That's rough, buddy."};
     // list of mirrored words String[] mirrored_words = {"you", "me", "am", "i", "my", "your"};
 
     Scanner user_rounds = new Scanner(System.in);
     Scanner userInput = new Scanner(System.in);
-    Scanner userInput2 = new Scanner(System.in);
 
     // chatbot initiation
     System.out.println("Talk to me!");
     System.out.println("How many times do you want to talk to me? ");
     // storing how many times the user wants to talk
     rounds = user_rounds.nextInt();
+    // conversation initator
+    System.out.print("Hi! Whatcha doin'? ");
+    transcript.add("Hi! Whatcha doin'? ");
     // while loop to talk user-specified number of times
     while (counter <= rounds) {
       // counter incrementer
       counter++;
       String mirrored_response = "";
-      // conversation initator
-      System.out.print("Hi! Whatcha doin'? ");
       // user first response
       user_sentence = userInput.nextLine();
+      transcript.add(user_sentence);
       // format user_sentence for analysis
       modified_user_sentence = user_sentence.toLowerCase();
       // splitting to get rid of spaces
@@ -71,22 +73,29 @@ class Conversation {
         // generate random number
         Random random_number = new Random();
         // print random canned response using random number generated above
-        System.out.println(canned_responses[random_number.nextInt(7)]); 
+        canned_response = canned_responses[random_number.nextInt(8)];
+        System.out.println(canned_response);
+        transcript.add(canned_response);
       }
       else {
+        mirrored_response = mirrored_response.replace(".","?");
         System.out.println(mirrored_response);
+        transcript.add(mirrored_response);
       }
       
       
   } // while loop bracket
             
-          
-  
+
     user_rounds.close();
     userInput.close();
-    userInput2.close();
     // final bye greeting
     System.out.println("Bye!");
+    transcript.add("Bye!");
+    System.out.println("Here's a transcript of our conversation.");
+    for (String element : transcript) {
+      System.out.println(element);
+    }
 }
 }
 
