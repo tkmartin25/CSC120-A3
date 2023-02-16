@@ -22,3 +22,5 @@ Both languages include while and for loops.
 
 - What worked, what didn't, what advice would you give someone taking this course in the future?
 I enjoyed taking breaks between working on it, because if I tried doing it all at once I would have never managed to get to where I am out right now, even if my code right now isn't perfect. Panicking definitely didn't help, which I tend to do a lot even when I try to remind myself to calm down. I also wished I worked more with someone else, because by the time you have both spent hours on the assignment independently, your code is often so different that it's hard to collaborate. 
+
+In addition, once again, I should've started the assignmnet during the weekend.
